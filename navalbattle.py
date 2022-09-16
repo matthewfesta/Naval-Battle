@@ -86,12 +86,12 @@ def hit_or_miss(my_board, row, col):
 	space = my_board[row][col]
 	if space == ' S ' or space == ' X ':
 		my_board[row][col] = ' X '
-		check = 'HIT!'
+		check = 'HIT'
 		draw_board(my_board)
 		return check
 	else:
 		my_board[row][col] = ' O '
-		check = 'MISS!'
+		check = 'MISSED'
 		draw_board(my_board)
 		return check
 
@@ -108,11 +108,11 @@ def hit_or_miss_computer(my_board, row, col):
 	space = my_board[row][col]
 	if space == ' S ' or space == ' X ':
 		my_board[row][col] = ' X '
-		check = 'HIT!'
+		check = 'HIT'
 		return check
 	else:
 		my_board[row][col] = ' O '
-		check = 'MISS!'
+		check = 'MISSED'
 		return check
 
 
@@ -175,8 +175,8 @@ def main(user_board, computer_board):
 			                                      comp_col)
 			# Print out
 			print(f'Your torpedo {check_user} one of the computer\'s ships!')
-			print(f'The computer\'s torpedo {check_computer} one '
-			      f' of the {user_name}\'s ship')
+			print(f'The computer\'s torpedo {check_computer} one'
+			      f' of {user_name}\'s ship')
 			# Check if game is over
 			is_game_over(user_board)
 			is_game_over(computer_board)
