@@ -95,6 +95,7 @@ def hit_or_miss(my_board, row, col):
 		draw_board(my_board)
 		return check
 
+
 def hit_or_miss_computer(my_board, row, col):
 	"""
 	The hit or miss takes the values inputted by the computer as parameters for
@@ -113,6 +114,7 @@ def hit_or_miss_computer(my_board, row, col):
 		my_board[row][col] = ' O '
 		check = 'MISS!'
 		return check
+
 
 def is_game_over(my_board):
 	"""
@@ -169,19 +171,28 @@ def main(user_board, computer_board):
 			comp_col = random.randint(0, grid_size - 1)
 			# Check each board for hit or miss
 			check_user = hit_or_miss(computer_board, row, col)
-			check_computer = hit_or_miss_computer(user_board, comp_row, comp_col)
+			check_computer = hit_or_miss_computer(user_board, comp_row,
+			                                      comp_col)
 			# Print out
-			print(f'YOU {check_user} a computer ship')
-			print(f'COMPUTER {check_computer} hit {user_name}\'s ship')
+			print(f'Your torpedo {check_user} one of the computer\'s ships!')
+			print(f'The computer\'s torpedo {check_computer} one '
+			      f' of the {user_name}\'s ship')
 			# Check if game is over
 			is_game_over(user_board)
 			is_game_over(computer_board)
 			# If over, print out Game over
 			if is_game_over(user_board):
 				print('Game over! Computer wins!')
-				print('Final User Board')
+				print(f'{user_name}\'s final board:')
+				draw_board(user_board)
+				print('Computer\'s final board:')
+				draw_board(computer_board)
 			elif is_game_over(computer_board):
-				print('Game over! User wins!')
+				print(f'Game over! {user_name} wins!')
+				print(f'{user_name}\'s final board:')
+				draw_board(user_board)
+				print('Computer\'s final board:')
+				draw_board(computer_board)
 			else:
 				round += 1
 				print(f'Round: {round}')
@@ -198,6 +209,7 @@ def main(user_board, computer_board):
 			quit()
 		else:
 			print('Something went wrong.')
+
 
 if __name__ == '__main__':
 	main(user_grid, computer_grid)
