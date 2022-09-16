@@ -20,8 +20,8 @@ import random
     Legend:
     1. "." = water
     2. "S" = ship position
-    3. "O" = water that was shot with bullet, a miss because it hit no ship
-    4. "X" = ship sunk!
+    3. "O" = a miss
+    4. "X" = a hit 
 """
 
 # Global variable for grid size
@@ -148,6 +148,11 @@ def main(user_board, computer_board):
 	setup_board(computer_board)
 	print(f'{user_name}\'s board:')
 	draw_board(user_board)
+	print('Legend:')
+	print('1. . = water \n'
+	      '2. S = ship position \n'
+	      '3. O = a miss \n'
+	      '4. X = a hit')
 	while not is_game_over(user_board):
 		row = input('Enter a row (X): \n')
 		try:
@@ -170,9 +175,9 @@ def main(user_board, computer_board):
 			comp_row = random.randint(0, grid_size - 1)
 			comp_col = random.randint(0, grid_size - 1)
 			# Check each board for hit or miss
-			check_user = hit_or_miss(computer_board, row, col)
-			check_computer = hit_or_miss_computer(user_board, comp_row,
-			                                      comp_col)
+			check_user = hit_or_miss_computer(computer_board, row, col)
+			check_computer = hit_or_miss(user_board, comp_row,
+			                             comp_col)
 			# Print out
 			print(f'Your torpedo {check_user} one of the computer\'s ships!')
 			print(f'The computer\'s torpedo {check_computer} one'
@@ -187,12 +192,14 @@ def main(user_board, computer_board):
 				draw_board(user_board)
 				print('Computer\'s final board:')
 				draw_board(computer_board)
+				break
 			elif is_game_over(computer_board):
 				print(f'Game over! {user_name} wins!')
 				print(f'{user_name}\'s final board:')
 				draw_board(user_board)
 				print('Computer\'s final board:')
 				draw_board(computer_board)
+				break
 			else:
 				round += 1
 				print(f'Round: {round}')
