@@ -135,6 +135,12 @@ def main(user_board, computer_board):
 	:return:
 	"""
 	round = 1
+	user_name = input('Enter Name: \n')
+	try:
+		user_name = str(user_name)
+	except:
+		print('Invalid name')
+	print(f'Hello {user_name}! Welcome to the game!')
 	print(f'**** Drawing Boards ~ Round {round} ****')
 	setup_board(user_board)
 	setup_board(computer_board)
@@ -165,14 +171,15 @@ def main(user_board, computer_board):
 			check_user = hit_or_miss(computer_board, row, col)
 			check_computer = hit_or_miss_computer(user_board, comp_row, comp_col)
 			# Print out
-			print(f'YOU {check_user}')
-			print(f'COMPUTER {check_computer}')
+			print(f'YOU {check_user} a computer ship')
+			print(f'COMPUTER {check_computer} hit {user_name}\'s ship')
 			# Check if game is over
 			is_game_over(user_board)
 			is_game_over(computer_board)
 			# If over, print out Game over
 			if is_game_over(user_board):
 				print('Game over! Computer wins!')
+				print('Final User Board')
 			elif is_game_over(computer_board):
 				print('Game over! User wins!')
 			else:
