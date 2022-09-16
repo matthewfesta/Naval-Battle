@@ -146,7 +146,7 @@ def main(user_board, computer_board):
 	print(f'**** Drawing Boards ~ Round {round} ****')
 	setup_board(user_board)
 	setup_board(computer_board)
-	print('Player\'s board:')
+	print(f'{user_name}\'s board:')
 	draw_board(user_board)
 	while not is_game_over(user_board):
 		row = input('Enter a row (X): \n')
