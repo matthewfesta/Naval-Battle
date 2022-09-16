@@ -176,7 +176,7 @@ def main(user_board, computer_board):
 			# Print out
 			print(f'Your torpedo {check_user} one of the computer\'s ships!')
 			print(f'The computer\'s torpedo {check_computer} one'
-			      f' of {user_name}\'s ship')
+			      f' of {user_name}\'s ships')
 			# Check if game is over
 			is_game_over(user_board)
 			is_game_over(computer_board)
