@@ -213,6 +213,8 @@ def main(user_board, computer_board):
 		if yes_no == 'Y':
 			main(user_board, computer_board)
 		elif yes_no == 'N':
+			print(f"Thank you for playing, {user_name}")
+			print("Play again soon!")
 			quit()
 		else:
 			print('Something went wrong.')
